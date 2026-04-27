@@ -1,1 +1,51 @@
 <p>page3 works!</p>
+
+<h1>Añadir chuleton</h1>
+
+<form [formGroup]="chuletonForm">
+    <label for="tipo">Tipo:</label>
+    <input id="tipo" type="text" formControlName="tipo">
+    @if ((submitted() || chuletonForm.get('tipo')?.touched) && 
+    chuletonForm.get('tipo')?.hasError('required')) {
+        <span class="error-msg">El tipo es obligatorio</span>
+    }
+
+    <label for="origen">Origen:</label>
+    <input id="origen" type="text" formControlName="origen">
+    @if ((submitted() || chuletonForm.get('origen')?.touched) && 
+    chuletonForm.get('origen')?.hasError('required')) {
+        <span class="error-msg">El origen es obligatorio</span>
+    }
+
+    <label for="peso">Peso (kg):</label>
+    <input id="peso" type="number" formControlName="peso">
+    @if ((submitted() || chuletonForm.get('peso')?.touched) && chuletonForm.get('peso')?.hasError('required')) {
+        <span class="error-msg">El peso es obligatorio</span>
+    }
+
+    <label for="maduracion">Maduración (días):</label>
+    <input id="maduracion" type="number" formControlName="maduracion">
+    @if ((submitted() || chuletonForm.get('maduracion')?.touched) && chuletonForm.get('maduracion')?.hasError('required')) {
+        <span class="error-msg">La maduración es obligatoria</span>
+    }   
+
+    <label for="cantidad">Cantidad:</label>
+    <input id="cantidad" type="number" formControlName="cantidad">
+    @if ((submitted() || chuletonForm.get('cantidad')?.touched) && chuletonForm.get('cantidad')?.hasError('required')) {
+        <span class="error-msg">La cantidad es obligatoria</span>
+    }
+
+    <button type="button" (click)="addChuleton()">Añadir Pedido de Chuleton</button>
+
+    <h1>Listado de pedidos de chuletones</h1>
+
+    @for (item of chuletonService.chuletones(); track $index) {
+        <div class="chuleton-item">
+            <p>Tipo: {{item.tipo}}</p>
+            <p>Origen: {{item.origen}}</p>
+            <p>Peso: {{item.peso}} kg</p>
+            <p>Maduración: {{item.maduracion}} días</p>
+            <p>Cantidad: {{item.cantidad}}</p>
+        </div>
+    }
+</form>
