@@ -1,0 +1,25 @@
+<div class="jazztel-page">
+  <section class="hero-mini">
+    <h1>Page 5</h1>
+    <p class="subtitle">Contador con Signals</p>
+  </section>
+
+  <section class="content-section">
+    <div class="counter-container">
+      <div class="counter-card">
+        <h2>Contador Digital</h2>
+        <div class="counter-display">
+          <span class="counter-value">{{ resultado }}</span>
+        </div>
+        <div class="counter-buttons">
+          <button (click)="disminuir()" class="counter-btn minus">
+            <span>−</span>
+          </button>
+          <button (click)="aumentar()" class="counter-btn plus">
+            <span>+</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
