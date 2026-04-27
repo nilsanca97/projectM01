@@ -1,7 +1,16 @@
 export interface User {
-    name: string;
-    email: string;
-    password: string;
+    uid: string ;
+    name: string | null;
+    email: string | null;
+}
+
+export interface LoginData {
+  email: string;
+  password: string;
+}
+
+export interface RegisterData extends LoginData {
+  name: string;
 }
 export interface Chuleton {
     tipo: string;
